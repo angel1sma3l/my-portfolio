@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Welcome to my portfolio created with React.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created by [Angel Ismael Linares].
 
 ## Available Scripts
 
