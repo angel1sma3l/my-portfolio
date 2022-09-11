@@ -6,7 +6,7 @@ const Btn = styled.button`
   border: ${(props) =>
     props.borderColor ? "1px solid " + props.borderColor : "none"};
   height: 40px;
-  border-radius: 22px;
+  border-radius: ${(props) => props.borderRadius ?? "22px"};
   color: ${(props) =>
     props.disabled ? "lightgray" : props.color ? props.color : "white"};
   font-size: 1.3rem;
@@ -22,6 +22,7 @@ const Btn = styled.button`
 const Button = ({
   title = "Submit",
   borderColor,
+  borderRadius,
   onClick,
   type = "button",
   hoverColor,
@@ -29,6 +30,7 @@ const Button = ({
   color,
   bgColor,
   disabled,
+  width,
 }) => {
   return (
     <Btn
@@ -40,6 +42,8 @@ const Button = ({
       bgColor={bgColor}
       color={color}
       borderColor={borderColor}
+      borderRadius={borderRadius}
+      width={width}
     >
       {title}
     </Btn>

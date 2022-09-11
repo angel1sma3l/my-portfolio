@@ -5,7 +5,7 @@ import DarkmodeButton from "./DarkmodeButton";
 import NavMenuButton from "./NavMenuButton";
 import StyledNavContainer from "./StyledNavContainer";
 
-const Div = styled.div`
+const Nav = styled.nav`
   align-items: center;
   background-color: var(--bg-color);
   display: flex;
@@ -29,12 +29,12 @@ const Navbar = ({ theme, onThemeChange }) => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <Div ref={(r) => console.log(r)}>
+    <Nav>
       <NavMenuButton toggle={toggle} onToggle={() => setToggle(!toggle)} />
       <DarkmodeButton theme={theme} onThemeChange={onThemeChange} />
       <StyledDropdownContainer data={routes} visible={toggle} />
       <StyledNavContainer data={routes} />
-    </Div>
+    </Nav>
   );
 };
 
