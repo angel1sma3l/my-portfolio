@@ -49,7 +49,7 @@ const Modal = ({
   btnTitle = "OK",
   onClose,
 }) => {
-  // if (!visible) return null;
+  if (!visible) return null;
 
   return (
     <Main>

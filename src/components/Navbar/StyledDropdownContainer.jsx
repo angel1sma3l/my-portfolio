@@ -4,7 +4,7 @@ import StyledDropdownNav from "./StyledDropdownLink";
 const StyledDiv = styled.div`
   display: flex;
   position: absolute;
-  top: 55px;
+  top: 70px;
   flex-direction: column;
   align-items: center;
   width: 200px;

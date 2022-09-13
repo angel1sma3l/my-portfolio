@@ -4,7 +4,9 @@ import LightMode from "@material-ui/icons/WbSunny";
 const DarkmodeButton = ({ theme, onThemeChange }) => {
   const container = {
     cursor: "pointer",
-    marginLeft: 20,
+    marginLeft: 30,
+    marginRight: 30,
+    padding: 0,
   };
 
   const handleClick = () => {

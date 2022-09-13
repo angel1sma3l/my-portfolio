@@ -5,6 +5,13 @@ import AppText from "../components/AppText";
 import Button from "../components/Button";
 import Modal from "./Modal";
 
+const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+`;
+
 const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -72,7 +79,7 @@ const ContactForm = () => {
   };
 
   return (
-    <>
+    <Main>
       <Modal
         visible={showModal}
         title="Thank you"
@@ -80,14 +87,13 @@ const ContactForm = () => {
         onClose={() => setShowModal(false)}
         onOkClick={() => setShowModal(false)}
       />
-      <AppText fs="5rem" fw="100" lh={0}>
+      <AppText fs="4rem" fw="100" lh={0}>
         Contact
       </AppText>
       <Form ref={form} onSubmit={sendEmail}>
         <Label htmlFor="user_name">Full Name</Label>
         <TextInput
           autoCapitalize="words"
-          autoFocus={true}
           id="user_name"
           placeholder="John Smith"
           name="user_name"
@@ -115,7 +121,7 @@ const ContactForm = () => {
           <Button type="submit" title="Send" bgColor="var(--purplish)" />
         </div>
       </Form>
-    </>
+    </Main>
   );
 };
 

@@ -4,14 +4,14 @@ import styled from "styled-components";
 
 const Div = styled.div`
   display: none;
-  opacity: 0;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  margin-left: 10px;
-  transition: opacity 500ms ease-out;
+  margin-left: 30px;
+  transition: all 500ms ease-out;
 
   @media (max-width: 800px) {
     display: flex;
-    opacity: 1;
   }
 `;
 

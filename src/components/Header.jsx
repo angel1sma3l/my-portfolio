@@ -1,15 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import AppLink from "./AppLink";
+import AppText from "./AppText";
 import Button from "./Button";
 
 const Main = styled.header`
   align-items: center;
-  background: linear-gradient(0deg, black 30%, var(--purplish), black 70%);
+  background: linear-gradient(0deg, black 40%, var(--purplish) 50%, black 80%);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 80%;
+  min-height: 90vh;
   color: #fff;
   margin: 0;
   width: 100vw;
@@ -29,7 +30,14 @@ const Text = styled.p`
 
 const Span = styled.span`
   font-size: 2rem;
-  font-weight: 300;
+  font-weight: 200;
+`;
+
+const Name = styled.span`
+  font-family: Snell Roundhand, cursive;
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: aquamarine;
 `;
 
 const Row = styled.div`
@@ -47,9 +55,9 @@ const Header = () => {
       <Text fs={6} fw={100} lh="1rem">
         Greetings,{" "}
         <Span>
-          I am Angel Linares a Software developer with vast experience building
-          stunning, fast and responsive Web and Mobile apps using React | React
-          Native.
+          I am <Name>Angel Linares </Name>a Front-end developer who's priority
+          is the user's experience, building stunning, fast and responsive Web
+          and Mobile apps using React | React Native.
         </Span>
       </Text>
       <Row>

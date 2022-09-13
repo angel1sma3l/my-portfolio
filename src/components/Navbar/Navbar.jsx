@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import StyledDropdownContainer from "./StyledDropdownContainer";
 import DarkmodeButton from "./DarkmodeButton";
@@ -10,12 +10,17 @@ const Nav = styled.nav`
   background-color: var(--bg-color);
   display: flex;
   flex-direction: row;
-  gap: 20px;
-  height: 70px;
-  position: relative;
+  min-height: 70px;
+  max-height: 70px;
+  position: fixed;
   width: 100vw;
   padding: 0;
-  z-index: 1;
+  z-index: 3;
+  transition: transform 1s ease;
+  transition-delay: 383ms;
+
+  transform: ${(props) =>
+    props.hide ? "translateY(-70px)" : "translateY(0px)"};
 `;
 
 const routes = [
@@ -25,11 +30,21 @@ const routes = [
   { name: "Contact", path: "contact" },
 ];
 
-const Navbar = ({ theme, onThemeChange }) => {
+const Navbar = ({ theme, onThemeChange, scrollY }) => {
   const [toggle, setToggle] = useState(false);
+  const [hide, setHide] = useState(false);
+  const currPos = useRef(0);
+
+  useEffect(() => {
+    if (scrollY > currPos.current) setHide(true);
+    else {
+      setHide(false);
+    }
+    currPos.current = scrollY;
+  }, [scrollY]);
 
   return (
-    <Nav>
+    <Nav hide={hide}>
       <NavMenuButton toggle={toggle} onToggle={() => setToggle(!toggle)} />
       <DarkmodeButton theme={theme} onThemeChange={onThemeChange} />
       <StyledDropdownContainer data={routes} visible={toggle} />

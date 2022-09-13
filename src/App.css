@@ -9,6 +9,7 @@
   margin: 0;
   width: 100vw;
   height: 100vh;
+  scroll-behavior: smooth;
   transition: color 1000ms ease-in-out, background-color 500ms ease-out;
 }
 
