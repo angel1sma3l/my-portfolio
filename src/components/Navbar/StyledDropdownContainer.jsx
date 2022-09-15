@@ -23,11 +23,16 @@ const StyledDiv = styled.div`
   }
 `;
 
-const StyledDropdownContainer = ({ data = [], visible }) => {
+const StyledDropdownContainer = ({ data = [], visible, onClickClose }) => {
   return (
     <StyledDiv visible={visible}>
       {data.map((item, index) => (
-        <StyledDropdownNav key={index} path={item.path} name={item.name} />
+        <StyledDropdownNav
+          key={index}
+          path={item.path}
+          name={item.name}
+          onClick={onClickClose}
+        />
       ))}
     </StyledDiv>
   );

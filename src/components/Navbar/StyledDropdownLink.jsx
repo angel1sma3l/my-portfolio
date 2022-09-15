@@ -21,7 +21,7 @@ const Div = styled.div`
   }
 `;
 
-const StyledDropdownLink = ({ name, path }) => {
+const StyledDropdownLink = ({ name, path, onClick }) => {
   const styles = {
     activeLink: {
       display: "flex",
@@ -50,7 +50,7 @@ const StyledDropdownLink = ({ name, path }) => {
     isActive ? styles.activeLink : styles.link;
 
   return (
-    <Div>
+    <Div onClick={onClick}>
       <NavLink to={path} style={handleNavlinkStyle}>
         {name}
       </NavLink>

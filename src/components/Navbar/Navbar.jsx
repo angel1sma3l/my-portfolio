@@ -5,6 +5,7 @@ import DarkmodeButton from "./DarkmodeButton";
 import NavMenuButton from "./NavMenuButton";
 import StyledNavContainer from "./StyledNavContainer";
 import logo from "../../assets/dmicano-logo.png";
+import { Link } from "react-router-dom";
 
 const Main = styled.div`
   display: flex;
@@ -84,14 +85,21 @@ const Navbar = ({ theme, onThemeChange, scrollY }) => {
     <Main hide={hide}>
       <Nav>
         <Brand>
-          <img src={logo} width="45px" height="auto" alt="dmicano" /> dmicano
+          <Link to="/">
+            <img src={logo} width="45px" height="auto" alt="dmicano" />
+          </Link>
+          dmicano
         </Brand>
         <StyledNavContainer data={routes} />
         <Menu>
           <DarkmodeButton theme={theme} onThemeChange={onThemeChange} />
           <NavMenuButton toggle={toggle} onToggle={() => setToggle(!toggle)} />
         </Menu>
-        <StyledDropdownContainer data={routes} visible={toggle} />
+        <StyledDropdownContainer
+          data={routes}
+          visible={toggle}
+          onClickClose={() => setToggle(false)}
+        />
       </Nav>
     </Main>
   );

@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX, faBars } from "@fortawesome/free-solid-svg-icons";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 const Div = styled.div`
   display: none;
