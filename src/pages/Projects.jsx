@@ -1,10 +1,13 @@
 import React from "react";
+import AppText from "../components/AppText";
 
 const Projects = () => {
   return (
-    <div>
-      <h1>Projects</h1>
-    </div>
+    <>
+      <AppText lh="0rem" fs="4rem">
+        Projects
+      </AppText>
+    </>
   );
 };
 
