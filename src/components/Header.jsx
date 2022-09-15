@@ -6,7 +6,14 @@ import Button from "./Button";
 
 const Main = styled.header`
   align-items: center;
-  background: linear-gradient(0deg, black 40%, var(--purplish) 50%, black 80%);
+  background: linear-gradient(
+    13deg,
+    black 50%,
+    royalblue 60%,
+    var(--light-violet) 70%,
+    blueviolet 75%,
+    black 80%
+  );
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,9 +22,9 @@ const Main = styled.header`
   margin: 0;
   width: 100vw;
   opacity: ${(props) => (props.show ? 1 : 0)};
-  transition: transform 1.5s ease-in, opacity 2s ease;
+  transition: transform 2s ease;
   transform: ${(props) =>
-    props.show ? "scale(1) rotate(360deg)" : "scale(0) rotate(0deg)"};
+    props.show ? "scale(1) rotateY(1turn)" : "scale(0) rotateY(0turn)"};
 `;
 
 const Text = styled.p`

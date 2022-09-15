@@ -1,14 +1,18 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX, faBars } from "@fortawesome/free-solid-svg-icons";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 const Div = styled.div`
   display: none;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  margin-left: 30px;
-  transition: all 500ms ease-out;
+  transition: all 0.5s ease;
+  transform: ${(props) => (props.toggle ? "rotate(0deg)" : "rotate(360deg)")};
+
+  &:hover {
+    color: white;
+  }
 
   @media (max-width: 800px) {
     display: flex;
@@ -17,11 +21,11 @@ const Div = styled.div`
 
 const NavMenuButton = ({ toggle, onToggle }) => {
   return (
-    <Div onClick={onToggle}>
+    <Div toggle={toggle} onClick={onToggle}>
       {toggle ? (
-        <FontAwesomeIcon icon={faX} />
+        <FontAwesomeIcon icon={faX} size="lg" />
       ) : (
-        <FontAwesomeIcon icon={faBars} />
+        <FontAwesomeIcon icon={faBars} size="lg" />
       )}
     </Div>
   );

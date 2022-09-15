@@ -5,15 +5,11 @@ const Div = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-color);
-  background-color: var(--bg-color);
   min-width: 130px;
-  height: 40px;
-  margin: 10px;
-  border-radius: 20px;
+  height: 30px;
+  border-radius: 15px;
   box-shadow: 0px 0px 0px var(--accent-color);
-  transition: transform 333ms ease-in-out, color 1000ms ease-in-out,
-    background-color 500ms ease-out;
+  transition: transform 333ms ease-in-out;
 
   &:hover {
     box-shadow: 3px 3px 13px var(--accent-color);

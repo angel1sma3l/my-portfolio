@@ -1,25 +1,29 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-regular-svg-icons";
+import styled from "styled-components";
+
+const Div = styled.div`
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+
+  &:hover {
+    color: white;
+  }
+`;
 
 const DarkmodeButton = ({ theme, onThemeChange }) => {
-  const container = {
-    cursor: "pointer",
-    marginLeft: 30,
-    marginRight: 30,
-    padding: 0,
-  };
-
   const handleClick = () => {
     onThemeChange(theme === "dark" ? "light" : "dark");
   };
   return (
-    <div style={container} onClick={handleClick}>
+    <Div onClick={handleClick}>
       {theme !== "dark" ? (
-        <FontAwesomeIcon icon={faMoon} />
+        <FontAwesomeIcon icon={faMoon} size="lg" />
       ) : (
-        <FontAwesomeIcon icon={faSun} />
+        <FontAwesomeIcon icon={faSun} size="lg" />
       )}
-    </div>
+    </Div>
   );
 };
 

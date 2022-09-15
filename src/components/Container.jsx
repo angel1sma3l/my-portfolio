@@ -6,7 +6,7 @@ const StyledDiv = styled.div`
   align-items: center;
   flex-direction: column;
   height: 100vh;
-  padding-top: 70px;
+  padding-top: 60px;
   width: 100vw;
   overflow: scroll;
   scroll-behavior: smooth;

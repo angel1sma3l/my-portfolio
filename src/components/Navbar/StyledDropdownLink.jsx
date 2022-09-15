@@ -5,9 +5,9 @@ const Div = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-color);
-  background-color: var(--bg-color);
-  min-width: 130px;
+  color: #fff;
+  background-color: #000;
+  min-width: 75%;
   height: 40px;
   margin: 10px;
   border-radius: 20px;
@@ -16,7 +16,7 @@ const Div = styled.div`
     background-color 500ms ease-out;
 
   &:hover {
-    box-shadow: 3px 3px 13px var(--accent-color);
+    box-shadow: 0px 0px 13px var(--accent-color);
     transform: scale(1.13);
   }
 `;
@@ -32,7 +32,7 @@ const StyledDropdownLink = ({ name, path }) => {
       height: "100%",
       borderRadius: "inherit",
       textDecoration: "none",
-      boxShadow: "3px 3px 13px var(--accent-color)",
+      boxShadow: "0px 0px 15px var(--accent-color)",
     },
     link: {
       display: "flex",

@@ -4,11 +4,11 @@ import StyledNavlink from "./StyledNavlink";
 const StyledDiv = styled.div`
   display: flex;
   flex-direction: row;
-  opacity: 1;
-  transition: opacity 1s ease, background-color 500ms ease-out;
+  margin-left: 10px;
+  margin-right: auto;
+  gap: 20px;
 
   @media (max-width: 800px) {
-    opacity: 0;
     display: none;
   }
 `;
