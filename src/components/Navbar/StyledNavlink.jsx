@@ -3,12 +3,14 @@ import { NavLink } from "react-router-dom";
 
 const Div = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--text-color);
   background-color: var(--bg-color);
   min-width: 130px;
-  height: 2.13rem;
+  height: 40px;
   margin: 10px;
-  border-radius: 1.65rem;
+  border-radius: 20px;
   box-shadow: 0px 0px 0px var(--accent-color);
   transition: transform 333ms ease-in-out, color 1000ms ease-in-out,
     background-color 500ms ease-out;
@@ -28,7 +30,7 @@ const StyledNavlink = ({ name, path }) => {
       color: "inherit",
       width: "100%",
       height: "100%",
-      borderRadius: 23,
+      borderRadius: 20,
       textDecoration: "none",
       boxShadow: "3px 3px 13px var(--accent-color)",
     },
@@ -39,7 +41,7 @@ const StyledNavlink = ({ name, path }) => {
       color: "inherit",
       width: "100%",
       height: "100%",
-      borderRadius: 23,
+      borderRadius: 20,
       textDecoration: "none",
     },
   };

@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronCircleUp } from "@fortawesome/free-solid-svg-icons";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import containerRef from "../context/container";
 
 const Div = styled.div`
   background-color: "var(--text-primary)";
@@ -15,15 +16,19 @@ const Div = styled.div`
   z-index: 3;
 `;
 
-const ScrollToTop = ({ positionY, onClick }) => {
+const ScrollToTop = ({ positionY }) => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     positionY > 700 ? setVisible(true) : setVisible(false);
   }, [positionY]);
 
+  const scrollUp = () => {
+    containerRef.current.scroll({ top: 0, left: 0 });
+  };
+
   return (
-    <Div visible={visible} style={styled} onClick={onClick}>
+    <Div visible={visible} style={styled} onClick={scrollUp}>
       <FontAwesomeIcon icon={faChevronCircleUp} size="2x" color="gray" />
     </Div>
   );

@@ -1,5 +1,5 @@
-import Menu from "@material-ui/icons/Menu";
-import Close from "@material-ui/icons/Close";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faX, faBars } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 
 const Div = styled.div`
@@ -16,7 +16,15 @@ const Div = styled.div`
 `;
 
 const NavMenuButton = ({ toggle, onToggle }) => {
-  return <Div onClick={onToggle}>{toggle ? <Close /> : <Menu />}</Div>;
+  return (
+    <Div onClick={onToggle}>
+      {toggle ? (
+        <FontAwesomeIcon icon={faX} />
+      ) : (
+        <FontAwesomeIcon icon={faBars} />
+      )}
+    </Div>
+  );
 };
 
 export default NavMenuButton;

@@ -1,7 +1,7 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import AppLink from "./AppLink";
-import AppText from "./AppText";
 import Button from "./Button";
 
 const Main = styled.header`
@@ -14,7 +14,12 @@ const Main = styled.header`
   color: #fff;
   margin: 0;
   width: 100vw;
+  opacity: ${(props) => (props.show ? 1 : 0)};
+  transition: transform 1.5s ease-in, opacity 2s ease;
+  transform: ${(props) =>
+    props.show ? "scale(1) rotate(360deg)" : "scale(0) rotate(0deg)"};
 `;
+
 const Text = styled.p`
   font-size: ${(props) => (props.fs ? props.fs + "rem" : "3rem")};
   font-weight: ${(props) => (props.fw ? props.fw : 300)};
@@ -49,10 +54,15 @@ const Row = styled.div`
 
 const Header = () => {
   const navigate = useNavigate();
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    setShow(true);
+  }, []);
 
   return (
-    <Main>
-      <Text fs={6} fw={100} lh="1rem">
+    <Main show={show}>
+      <Text fs={6} fw={100} lh="1.3rem">
         Greetings,{" "}
         <Span>
           I am <Name>Angel Linares </Name>a Front-end developer who's priority

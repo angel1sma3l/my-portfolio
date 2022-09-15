@@ -9,7 +9,7 @@ const FooterStyled = styled.footer`
   justify-content: center;
   min-height: 20vh;
   width: 100vw;
-  padding: 20px 0px;
+  padding: 100px 0px;
   margin-top: auto;
   margin-bottom: 0;
 `;

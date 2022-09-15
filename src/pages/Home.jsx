@@ -13,12 +13,12 @@ const Section = styled.section`
 
 const Home = () => {
   return (
-    <main>
+    <>
       <Header />
       <Section>
         <ContactForm />
       </Section>
-    </main>
+    </>
   );
 };
 

@@ -1,5 +1,5 @@
-import DarkModeOutlined from "@material-ui/icons/NightsStay";
-import LightMode from "@material-ui/icons/WbSunny";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon, faSun } from "@fortawesome/free-regular-svg-icons";
 
 const DarkmodeButton = ({ theme, onThemeChange }) => {
   const container = {
@@ -15,9 +15,9 @@ const DarkmodeButton = ({ theme, onThemeChange }) => {
   return (
     <div style={container} onClick={handleClick}>
       {theme !== "dark" ? (
-        <DarkModeOutlined fontSize="small" />
+        <FontAwesomeIcon icon={faMoon} />
       ) : (
-        <LightMode fontSize="small" />
+        <FontAwesomeIcon icon={faSun} />
       )}
     </div>
   );

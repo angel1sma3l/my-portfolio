@@ -1,15 +1,23 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import styled from "styled-components";
 
 const StyledDiv = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
-  width: 99vw;
+  flex-direction: column;
+  height: 100vh;
+  padding-top: 70px;
+  width: 100vw;
+  overflow: scroll;
+  scroll-behavior: smooth;
 `;
 
-const Container = ({ children, ...otherProps }) => {
-  return <StyledDiv>{children}</StyledDiv>;
-};
+const Container = forwardRef(({ children, ...otherProps }, ref) => {
+  return (
+    <StyledDiv ref={ref} {...otherProps}>
+      {children}
+    </StyledDiv>
+  );
+});
 
 export default Container;

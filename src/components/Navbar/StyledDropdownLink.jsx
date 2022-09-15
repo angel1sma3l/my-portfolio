@@ -3,12 +3,14 @@ import styled from "styled-components";
 
 const Div = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--text-color);
   background-color: var(--bg-color);
   min-width: 130px;
-  height: 2.13rem;
+  height: 40px;
   margin: 10px;
-  border-radius: 1.65rem;
+  border-radius: 20px;
   box-shadow: 0px 0px 0px var(--accent-color);
   transition: transform 333ms ease-in-out, color 1000ms ease-in-out,
     background-color 500ms ease-out;

@@ -5,7 +5,7 @@ const Text = styled.p`
   font-size: ${(props) => props.fs};
   line-height: ${(props) => props.lh};
   font-family: ${(props) => props.fm};
-  font-weight: ${(props) => props.fw};
+  font-weight: ${(props) => props.fw ?? "var(--font-weight)"};
   max-width: ${(props) => props.width ?? "95%"};
   text-align: ${(props) => props.ta};
 

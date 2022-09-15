@@ -1,6 +1,5 @@
 import React from "react";
 import AppText from "../components/AppText";
-import Container from "../components/Container";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,11 +8,18 @@ import {
   faHtml5,
   faCss3,
 } from "@fortawesome/free-brands-svg-icons";
+import useScrollToTop from "../hooks/useScrollToTop";
 
 const Div = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 20px;
+  padding: 0px 30px;
+  width: 40rem;
+
+  @media (max-width: 800px) {
+    width: 90%;
+  }
 `;
 
 const Section = styled.section`
@@ -22,13 +28,14 @@ const Section = styled.section`
   justify-content: center;
   gap: 10%;
   align-items: center;
-  min-height: 100vh;
-  width: 100vw;
+  padding: 50px 0px;
+  width: 100%;
 `;
 
 const LogosDiv = styled.section`
   display: flex;
   width: 100%;
+  flex-wrap: wrap;
   min-height: 100px;
   margin-top: 20px;
   margin-bottom: 50px;
@@ -52,13 +59,15 @@ const Name = styled.span`
 `;
 
 const About = () => {
+  useScrollToTop();
+
   return (
-    <Container>
+    <>
+      <AppText ta="center" fs="4rem" lh="0px">
+        Hello!
+      </AppText>
       <Section>
-        <AppText ta="center" fs="4rem" lh={0}>
-          Hello!
-        </AppText>
-        <AppText ta="center" fs="2.1rem" fw={200}>
+        <AppText ta="center" fs="2.1rem" width="40rem">
           My name is <Name>Angel Linares</Name> an ardent Front-end developer
           with experience leveraging JavaScript to build high performance,
           responsive websites, e-commerce sites, internal frameworks, mobile
@@ -80,12 +89,7 @@ const About = () => {
               <br /> React Native
             </Logo>
             <Logo>
-              <FontAwesomeIcon
-                icon={faJs}
-                size="3x"
-                enableBackground={true}
-                color="orange"
-              />
+              <FontAwesomeIcon icon={faJs} size="3x" color="orange" />
               JavaScript
             </Logo>
             <Logo>
@@ -107,8 +111,15 @@ const About = () => {
             <AppText fw={700}>Styled Component</AppText>
           </LogosDiv>
         </Div>
+
+        <Div>
+          Education:
+          <br />
+          <br />
+          BS in Information Technology. @ Kaplan University 2017
+        </Div>
       </Section>
-    </Container>
+    </>
   );
 };
 
