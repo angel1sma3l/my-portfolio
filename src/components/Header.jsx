@@ -17,7 +17,7 @@ const Main = styled.header`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 90vh;
+  height: 900px;
   color: #fff;
   margin: 0;
   width: 100vw;

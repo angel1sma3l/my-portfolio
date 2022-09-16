@@ -9,9 +9,7 @@ const Div = styled.div`
   background-color: #000;
   min-width: 75%;
   height: 40px;
-  margin: 10px;
   border-radius: 20px;
-  box-shadow: 0px 0px 0px var(--accent-color);
   transition: transform 333ms ease-in-out, color 1000ms ease-in-out,
     background-color 500ms ease-out;
 

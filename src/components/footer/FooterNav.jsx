@@ -12,10 +12,10 @@ const Div = styled.div`
 const FooterNav = () => {
   return (
     <Div>
-      <AppLink color="var(--text-color)" title="Home" to="/" /> |
-      <AppLink color="var(--text-color)" title="Projects" to="/projects" /> |
-      <AppLink color="var(--text-color)" title="About" to="/about" /> |
-      <AppLink color="var(--text-color)" title="Contact" to="/contact" />
+      <AppLink color="var(--text-color)" title="Home" to="home" /> |
+      <AppLink color="var(--text-color)" title="Projects" to="projects" /> |
+      <AppLink color="var(--text-color)" title="About" to="about" /> |
+      <AppLink color="var(--text-color)" title="Contact" to="contact" />
     </Div>
   );
 };

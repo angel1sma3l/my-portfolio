@@ -8,7 +8,6 @@ const Div = styled.div`
   min-width: 130px;
   height: 30px;
   border-radius: 15px;
-  box-shadow: 0px 0px 0px var(--accent-color);
   transition: transform 333ms ease-in-out;
 
   &:hover {
@@ -18,32 +17,29 @@ const Div = styled.div`
 `;
 
 const StyledNavlink = ({ name, path }) => {
-  const styles = {
-    activeLink: {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      color: "inherit",
-      width: "100%",
-      height: "100%",
-      borderRadius: 20,
-      textDecoration: "none",
-      boxShadow: "3px 3px 13px var(--accent-color)",
-    },
-    link: {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      color: "inherit",
-      width: "100%",
-      height: "100%",
-      borderRadius: 20,
-      textDecoration: "none",
-    },
+  const activeLink = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    color: "inherit",
+    width: "100%",
+    height: "100%",
+    borderRadius: 20,
+    textDecoration: "none",
+    boxShadow: "3px 3px 13px var(--accent-color)",
+  };
+  const link = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    color: "inherit",
+    width: "100%",
+    height: "100%",
+    borderRadius: 20,
+    textDecoration: "none",
   };
 
-  const handleNavlinkStyle = ({ isActive }) =>
-    isActive ? styles.activeLink : styles.link;
+  const handleNavlinkStyle = ({ isActive }) => (isActive ? activeLink : link);
 
   return (
     <Div>

@@ -62,7 +62,7 @@ const Menu = styled.div`
 `;
 
 const routes = [
-  { name: "Home", path: "/" },
+  { name: "Home", path: "home" },
   { name: "Projects", path: "projects" },
   { name: "About", path: "about" },
   { name: "Contact", path: "contact" },
@@ -85,12 +85,14 @@ const Navbar = ({ theme, onThemeChange, scrollY }) => {
     <Main hide={hide}>
       <Nav>
         <Brand>
-          <Link to="/">
+          <Link to="home">
             <img src={logo} width="45px" height="auto" alt="dmicano" />
           </Link>
           dmicano
         </Brand>
+
         <StyledNavContainer data={routes} />
+
         <Menu>
           <DarkmodeButton theme={theme} onThemeChange={onThemeChange} />
           <NavMenuButton toggle={toggle} onToggle={() => setToggle(!toggle)} />

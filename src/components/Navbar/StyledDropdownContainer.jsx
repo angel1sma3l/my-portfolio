@@ -9,7 +9,8 @@ const StyledDiv = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100vw;
-  padding: 10px 0px;
+  padding: 20px 0px;
+  gap: 20px;
   margin: 0;
   background-color: #00000099;
   transition: transform 383ms ease-in-out, background-color 500ms ease-out;
