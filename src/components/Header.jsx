@@ -17,9 +17,10 @@ const Main = styled.header`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 900px;
+  min-height: 900px;
   color: #fff;
   margin: 0;
+  padding: 0;
   width: 100vw;
   opacity: ${(props) => (props.show ? 1 : 0)};
   transition: transform 2s ease;
@@ -28,11 +29,12 @@ const Main = styled.header`
 `;
 
 const Text = styled.p`
-  font-size: ${(props) => (props.fs ? props.fs + "rem" : "3rem")};
+  font-size: ${(props) => (props.fs ? props.fs : "3rem")};
   font-weight: ${(props) => (props.fw ? props.fw : 300)};
   max-width: 50%;
+  line-height: 1.5rem;
   padding: 0;
-  line-height: ${(props) => props.lh};
+  margin: 0;
 
   @media (max-width: 800px) {
     transform: scale(0.8);
@@ -43,6 +45,7 @@ const Text = styled.p`
 const Span = styled.span`
   font-size: 2rem;
   font-weight: 200;
+  margin: 0;
 `;
 
 const Name = styled.span`
@@ -57,6 +60,7 @@ const Row = styled.div`
   flex-direction: row;
   align-items: center;
   gap: 33px;
+  margin: 50px 0px;
 `;
 
 const Header = () => {
@@ -69,7 +73,7 @@ const Header = () => {
 
   return (
     <Main show={show}>
-      <Text fs={6} fw={100} lh="1.3rem">
+      <Text fs="5rem" fw={100}>
         Greetings,{" "}
         <Span>
           I am <Name>Angel Linares </Name>a Front-end developer who's priority

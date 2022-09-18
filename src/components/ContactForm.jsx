@@ -87,9 +87,7 @@ const ContactForm = () => {
         onClose={() => setShowModal(false)}
         onOkClick={() => setShowModal(false)}
       />
-      <AppText fs="4rem" lh={0}>
-        Contact
-      </AppText>
+      <AppText fs="4rem">Contact</AppText>
       <Form ref={form} onSubmit={sendEmail}>
         <Label htmlFor="user_name">Full Name</Label>
         <TextInput

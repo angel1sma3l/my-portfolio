@@ -63,7 +63,7 @@ const About = () => {
 
   return (
     <>
-      <AppText ta="center" fs="4rem" lh="0px">
+      <AppText ta="center" fs="4rem">
         Hello!
       </AppText>
       <Section>

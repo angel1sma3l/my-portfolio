@@ -1,81 +1,129 @@
-import styled, { keyframes } from "styled-components";
-import dominoLogo from "../../assets/domino-icon180.png";
-import Button from "../Button";
+import { useState } from "react";
+import styled from "styled-components";
+import DominoSection1 from "./DominoSection1";
+import DominoSection2 from "./DominoSection2";
+import ChevronRight from "@material-ui/icons/ChevronRight";
+import ChevronLeft from "@material-ui/icons/ChevronLeft";
+import { keyframes } from "styled-components";
 
-const Section = styled.section`
+const sliding1 = keyframes`
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(-100vw);
+  }
+
+  100% {
+    transform: translateX(-200vw);
+  }
+`;
+
+const Carrousel = styled.div`
   display: flex;
-  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  transition: ${({ sectionNumber, transitionOff }) =>
+    transitionOff ? "none" : "all 0.8s ease-in-out"};
+
+  /* animation: 28s ease-in 5s infinite forwards ${sliding1}; */
+
+  transform: ${({ sectionNumber }) => "translateX(-" + sectionNumber + "vw)"};
+`;
+
+const Left = styled.div`
+  position: absolute;
+  display: flex;
+  align-items: center;
+  left: 0px;
+  font-size: 80px;
+  color: gray;
+  cursor: pointer;
+  z-index: 2;
+`;
+const Right = styled.div`
+  position: absolute;
+  display: flex;
+  align-items: center;
+  right: 0px;
+  font-size: 80px;
+  color: gray;
+  cursor: pointer;
+  z-index: 2;
+`;
+
+const Main = styled.div`
+  display: flex;
+  align-items: center;
+  min-width: 75vw;
+  max-width: 75vw;
+  min-height: 800px;
+  max-height: 800px;
+  background-color: white;
+  position: relative;
+  overflow: visible;
+  padding: 0;
+  margin: 0px 0.8vw;
+`;
+
+const Glass = styled.div`
+  display: flex;
+  background-color: #ffffff99;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+`;
+
+const Contain = styled.div`
+  display: flex;
+  flex-direction: row;
+  max-width: 100vw;
+  min-width: 100vw;
+  min-height: 800px;
   align-items: center;
   justify-content: center;
-  width: 100vw;
-  min-height: 900px;
-  margin: 30px 0px;
   background-color: white;
-  color: black;
-  padding: 0px;
-`;
-
-const roll = keyframes`
-  from {
-    transform: translateX(-300px) rotate(-1.5turn);
-  }
-
-  to {
-    transform: translateX(0px) rotate(0deg);
-  }
-`;
-
-const rotate = keyframes`
-  from {
-    transform: rotate(10deg);
-  }
-
-  to {
-    transform: rotate(-10deg);
-  }
-`;
-
-// Here we create a component that will rotate everything we pass in over two seconds
-const Rotate = styled.div`
-  display: flex;
-  animation: 1.5s ease-in 0s 1 normal ${roll},
-    0.1s ease-out 1.5s 38 alternate ${rotate};
-`;
-
-const Text = styled.p`
-  font-size: ${(props) => props.fs};
-  font-weight: ${(props) => props.fw};
-  line-height: ${(props) => props.lh};
-  color: ${(props) => props.color};
-  padding: 0px 200px;
-
-  @media (max-width: 800px) {
-    padding: 0px 20px;
-  }
+  overflow: hidden;
 `;
 
 const DominoSection = () => {
+  const [sectionNumber, setSectionNumber] = useState(0);
+  const [transitionOff, setTransitionOff] = useState(false);
+
+  const handleRight = () => {
+    let state = sectionNumber;
+    // turnoff transition to go back to the first section or slide.
+    setTransitionOff(state > 75 ? true : false);
+
+    state = state < 2 * 75 ? state + 75 : 0;
+    setSectionNumber(state);
+  };
+  const handleLeft = () => {
+    let state = sectionNumber;
+    state = state < 75 ? state : state - 75;
+    setSectionNumber(state);
+  };
+
   return (
-    <Section>
-      <Text fs="3rem" fw={600}>
-        A simple app, used by all.
-      </Text>
-      <Rotate>
-        <img src={dominoLogo} alt="domino apunte" />
-      </Rotate>
-      <Text fs="2rem" lh={0} fw={500}>
-        Domino Apunte
-      </Text>
-      <Text>
-        Over 500k users over the world are using Domino Apunte to keep track of
-        their domino's points.
-      </Text>
-      <Button
-        title="Download"
-        bgColor="royalblue"
-        onClick={() => window.open("https://dominoapunte.com")}
-      />
-    </Section>
+    <Contain>
+      <Glass></Glass>
+      <Main>
+        <Left onClick={handleLeft}>
+          <ChevronLeft fontSize="inherit" color="inherit" />
+        </Left>
+
+        <Carrousel sectionNumber={sectionNumber} transitionOff={transitionOff}>
+          <DominoSection2 />
+          <DominoSection1 />
+          <DominoSection2 />
+        </Carrousel>
+
+        <Right onClick={handleRight}>
+          <ChevronRight fontSize="inherit" color="inherit" />
+        </Right>
+      </Main>
+      <Glass></Glass>
+    </Contain>
   );
 };
 

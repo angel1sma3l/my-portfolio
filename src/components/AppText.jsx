@@ -8,6 +8,7 @@ const Text = styled.p`
   font-weight: ${(props) => props.fw ?? "var(--font-weight)"};
   max-width: ${(props) => props.width ?? "95%"};
   text-align: ${(props) => props.ta};
+  margin: 30px auto;
 
   @media (max-width: 800px) {
     max-width: 95%;
