@@ -5,6 +5,7 @@ import DominoSection2 from "./DominoSection2";
 import ChevronRight from "@material-ui/icons/ChevronRight";
 import ChevronLeft from "@material-ui/icons/ChevronLeft";
 import { keyframes } from "styled-components";
+import DominoSection3 from "./DominoSection3";
 
 const sliding1 = keyframes`
   0% {
@@ -21,6 +22,7 @@ const sliding1 = keyframes`
 
 const Carrousel = styled.div`
   display: flex;
+  align-items: center;
   margin: 0;
   padding: 0;
   transition: ${({ sectionNumber, transitionOff }) =>
@@ -33,7 +35,7 @@ const Carrousel = styled.div`
 
 const Left = styled.div`
   position: absolute;
-  display: flex;
+  display: ${({ sectionNumber }) => (sectionNumber < 1 ? "none" : "flex")};
   align-items: center;
   left: 0px;
   font-size: 80px;
@@ -43,7 +45,7 @@ const Left = styled.div`
 `;
 const Right = styled.div`
   position: absolute;
-  display: flex;
+  display: ${({ sectionNumber }) => (sectionNumber > 75 ? "none" : "flex")};
   align-items: center;
   right: 0px;
   font-size: 80px;
@@ -63,7 +65,7 @@ const Main = styled.div`
   position: relative;
   overflow: visible;
   padding: 0;
-  margin: 0px 0.8vw;
+  margin: 0;
 `;
 
 const Glass = styled.div`
@@ -108,17 +110,17 @@ const DominoSection = () => {
     <Contain>
       <Glass></Glass>
       <Main>
-        <Left onClick={handleLeft}>
+        <Left onClick={handleLeft} sectionNumber={sectionNumber}>
           <ChevronLeft fontSize="inherit" color="inherit" />
         </Left>
 
         <Carrousel sectionNumber={sectionNumber} transitionOff={transitionOff}>
-          <DominoSection2 />
           <DominoSection1 />
           <DominoSection2 />
+          <DominoSection3 />
         </Carrousel>
 
-        <Right onClick={handleRight}>
+        <Right onClick={handleRight} sectionNumber={sectionNumber}>
           <ChevronRight fontSize="inherit" color="inherit" />
         </Right>
       </Main>

@@ -8,7 +8,7 @@ const Section = styled.section`
   align-items: center;
   justify-content: center;
   width: 75vw;
-  min-height: 800px;
+  height: 800px;
   margin: 0;
   padding: 0;
 `;
@@ -21,42 +21,41 @@ const Div = styled.div`
   width: 98%;
   height: 100%;
   padding: 0;
-  color: black;
-  background-color: white;
+  color: white;
+  background: radial-gradient(red, black 50%);
   margin: 0;
   box-shadow: 0px 0px 20px gray;
 `;
 
-const slide = keyframes`
-  from {
-    transform: scale(0) translateX(-75vw);
-  }
-  
-  25% {
-      transform: scale(1) translateX(0px);
-    }
-    75% {
-        transform: scale(1) translateX(0px);
-    }
-    100% {
-      transform: scale(0) translateX(75vw);
-    }
-`;
-
 const rotate = keyframes`
   from {
-    transform: rotate(10deg);
+    transform: rotate(0deg);
   }
 
   to {
-    transform: rotate(-10deg);
+    transform: rotate(-180deg);
   }
+`;
+
+const spin = keyframes`
+from {
+  transform: rotate(-180deg);
+}
+
+to {
+  transform: rotate(18turn);
+}
 `;
 
 // Here we create a component that will rotate everything we pass in over two seconds
 const Rotate = styled.div`
   display: flex;
-  animation: 333ms ease-in-out 0s 50.5 alternate ${rotate};
+  transition: all 1s ease-out;
+
+  &:hover {
+    animation: 1.3s ease-in-out 0s 1 normal ${rotate},
+      5s ease-out 1.3s 1 normal ${spin};
+  }
 `;
 
 const Text = styled.p`
@@ -73,28 +72,19 @@ const Text = styled.p`
   }
 `;
 
-const SlideInOut = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: 8s ease-in-out 0s 20.5 normal ${slide};
-  overflow: hidden;
-  width: 100%;
-`;
-
 const DominoSection1 = () => {
   return (
     <Section>
       <Div>
-        <SlideInOut>
-          <Text fs="3rem" fw={600}>
-            A simple app, used by all.
-          </Text>
-        </SlideInOut>
+        <Text fs="3rem" fw={600}>
+          A simple app, used by all.
+        </Text>
+
         <Rotate>
           <img src={dominoLogo} alt="domino apunte" />
         </Rotate>
-        <Text fs="2rem" lh={0} fw={500}>
+
+        <Text fs="2rem" fw={500}>
           Domino Apunte
         </Text>
         <Text>
