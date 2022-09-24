@@ -11,38 +11,40 @@ const Section = styled.section`
   margin: 0;
 `;
 
-const Div = styled.div`
-  display: flex;
-  height: 100%;
-  /* background-image: url("https://dmicano.s3.us-east-2.amazonaws.com/Splash.jpg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center; */
-  background-color: black;
-  width: 98%;
-`;
-
 const Darklayer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  background-color: #00000055;
+  background: url("https://dmicano.s3.us-east-2.amazonaws.com/Splash.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black;
   color: white;
   box-shadow: 0px 0px 20px lightgray;
-  width: 100%;
+  width: 98%;
   height: 100%;
   margin: 0;
   padding: 0;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    background-color: #00000055;
+  }
 `;
 
 const DominoSection2 = () => {
   return (
     <Section>
-      <Div>
-        <Darklayer>
+      <Darklayer>
+        <div>
           <AppText width="50%" fw={400} fs="1.5rem">
-            <AppText fs="2rem">A little history about Domino Apunte</AppText>
+            <AppText fs="2.3rem">A little history about Domino Apunte</AppText>
+            <br />
             Back in 2018 in Leominster Massachusetts I was playing a hand of
             Dominoes with a good friend of mine Robert, when the time to write
             down the score came, I thoght there must be a scoresheet app to keep
@@ -51,13 +53,8 @@ const DominoSection2 = () => {
             to use. I just didn't like them and said, I am going to create my
             own app. That day Domino Apunte was born.
           </AppText>
-          <img
-            src="https://dmicano.s3.us-east-2.amazonaws.com/Splash.jpg"
-            alt="domino splash screen"
-            width="40%"
-          />
-        </Darklayer>
-      </Div>
+        </div>
+      </Darklayer>
     </Section>
   );
 };

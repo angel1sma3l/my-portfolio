@@ -86,7 +86,7 @@ const ContactForm = () => {
     const publickKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
 
     email.sendForm(serviceId, templateId, form.current, publickKey).then(
-      (res) => {
+      () => {
         setShowModal(true);
         form.current.reset();
       },
