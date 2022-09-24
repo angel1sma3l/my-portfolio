@@ -6,12 +6,12 @@ import EyeskySection from "../components/eyesky/EyeskySection";
 const Projects = () => {
   return (
     <>
-      <AppText fs="4rem">Projects</AppText>
-      <EyeskySection />
-      <DominoSection />
-      <AppText fs="3rem">
+      <AppText fs="3rem" width="50%" ta="center">
         Your dream + my imagination = the source of this creation.
       </AppText>
+
+      <EyeskySection />
+      <DominoSection />
     </>
   );
 };

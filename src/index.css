@@ -5,7 +5,7 @@
   --light-color: #bbb;
   --dark-color: #333;
   --purplish: rgb(85, 23, 242);
-  --font-weight: 300;
+  --font-weight: 400;
   --light-violet: #b09db9;
 }
 
@@ -13,7 +13,7 @@
   --bg-color: #000;
   --text-color: #fff;
   --accent-color: #188;
-  --font-weight: 300;
+  --font-weight: 200;
 }
 
 body {
@@ -21,6 +21,7 @@ body {
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   font-size: 18px;
+  font-weight: var(--font-weight);
   color: var(--text-color);
   background-color: var(--bg-color);
   margin: 0;
@@ -32,15 +33,7 @@ body {
 }
 
 body::-webkit-scrollbar {
-  width: 0.25rem;
-}
-
-body::-webkit-scrollbar-track {
-  background: var(--bg-color);
-}
-
-body::-webkit-scrollbar-thumb {
-  background: var(--bg-color);
+  display: none;
 }
 
 code {

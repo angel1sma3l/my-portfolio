@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Text = styled.p`
+const Text = styled.div`
   color: ${(props) => props.color};
   font-size: ${(props) => props.fs};
   line-height: ${(props) => props.lh};

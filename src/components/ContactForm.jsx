@@ -9,7 +9,18 @@ const Main = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  justify-content: center;
+  width: 50%;
+  padding: 0;
+  min-height: 700px;
+  gap: 30px;
+  margin: 10px 0 0;
+  box-shadow: 0px 0px 20px var(--accent-color);
+  border-radius: 5px;
+
+  @media (max-width: 800px) {
+    width: 95%;
+  }
 `;
 
 const Form = styled.form`
@@ -18,20 +29,33 @@ const Form = styled.form`
   max-width: 500px;
   justify-content: space-around;
   gap: 10px;
-`;
 
-const TextInput = styled.input`
-  width: 300px;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  padding: 10px 20px 0px 3px;
-  font-size: 1.5rem;
-  border: none;
-  border-bottom: 1px solid gray;
+  fieldset {
+    border-width: 0;
+    transition: border-width 0.5s ease;
+    legend {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    input {
+      width: 300px;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-size: 1.5rem;
+      border-width: 0;
+      border-bottom-width: 1px;
+      outline: none;
+    }
 
-  &:focus {
-    outline: none;
-    border-bottom: 1px solid var(--text-color);
+    &:focus-within {
+      border-width: 1px;
+      legend {
+        opacity: 1;
+      }
+      input {
+        border-bottom-width: 2px;
+      }
+    }
   }
 `;
 
@@ -47,14 +71,6 @@ const Textarea = styled.textarea`
     outline: none;
     border-bottom: 1px solid var(--text-color);
   }
-`;
-
-const Label = styled.label`
-  margin-top: 15px;
-  margin-bottom: -15px;
-  opacity: 1;
-  font-size: 1rem;
-  z-index: 2;
 `;
 
 const ContactForm = () => {
@@ -88,32 +104,40 @@ const ContactForm = () => {
         onOkClick={() => setShowModal(false)}
       />
       <AppText fs="4rem">Contact</AppText>
+
       <Form ref={form} onSubmit={sendEmail}>
-        <Label htmlFor="user_name">Full Name</Label>
-        <TextInput
-          autoCapitalize="words"
-          id="user_name"
-          placeholder="John Smith"
-          name="user_name"
-          required
-        />
-        <Label htmlFor="email">Email</Label>
-        <TextInput
-          id="email"
-          placeholder="your@mail.com"
-          type="email"
-          name="email"
-          required
-        />
-        <Label htmlFor="message">Message</Label>
-        <Textarea
-          id="message"
-          placeholder="message here..."
-          name="message"
-          rows={3}
-          cols={23}
-          required
-        />
+        <fieldset>
+          <legend>Name</legend>
+          <input
+            autoCapitalize="words"
+            id="user_name"
+            placeholder="John Smith"
+            name="user_name"
+            required
+          />
+        </fieldset>
+        <fieldset>
+          <legend htmlFor="email">Email</legend>
+          <input
+            id="email"
+            placeholder="your@mail.com"
+            type="email"
+            name="email"
+            required
+          />
+        </fieldset>
+        <fieldset>
+          <legend>Message</legend>
+          <Textarea
+            id="message"
+            placeholder="message here..."
+            name="message"
+            rows={3}
+            cols={23}
+            required
+          />
+        </fieldset>
+
         <AppText color="red">{errMessage}</AppText>
         <div style={{ alignSelf: "center" }}>
           <Button type="submit" title="Send" bgColor="var(--purplish)" />

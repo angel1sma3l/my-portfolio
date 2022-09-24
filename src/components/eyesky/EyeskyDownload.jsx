@@ -38,7 +38,7 @@ const Div = styled.div`
 const EyeskyDownload = () => {
   return (
     <Main>
-      Download
+      Mobile
       <Logo src={logo} alt="eyesky logo" />
       <Row>
         <Div

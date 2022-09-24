@@ -1,24 +1,41 @@
 import styled from "styled-components";
-import AppText from "../AppText";
 import Section1 from "./Section1";
+import Sectionn2 from "./Section2";
 
-const Section = styled.section`
+const Main = styled.main`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 800px;
-  max-height: 800px;
+  padding: 0;
+  margin: 0;
   width: 100vw;
-  overflow: hidden;
-  color: black;
-  background-color: lightgray;
+
+  figure {
+    display: flex;
+    flex-direction: row;
+    width: 97vw;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+
+    section {
+      scroll-snap-align: start;
+    }
+  }
 `;
 
 const EyeskySection = () => {
   return (
-    <Section>
-      <Section1 />
-    </Section>
+    <Main>
+      <figure>
+        <section>
+          <Section1 />
+        </section>
+        <section>
+          <Sectionn2 />
+        </section>
+      </figure>
+    </Main>
   );
 };
 

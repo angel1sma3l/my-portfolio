@@ -26,7 +26,7 @@ const Div = styled.div`
   color: black;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0px 0px 100px var(--accent);
+  box-shadow: 0px 0px 50px gray;
   opacity: ${(props) => (props.visible ? 1 : 0)};
   transition: opacity 883ms ease;
 
@@ -57,10 +57,12 @@ const Modal = ({
         <div style={{ alignSelf: "end" }}>
           <Button title="X" onClick={onClose} color="inherit" width="40px" />
         </div>
-        <AppText fw={500} lh="0rem">
+        <AppText fw={600} fs="2rem">
           {title}
         </AppText>
-        <AppText width="80%">{message}</AppText>
+        <AppText fs="1.3rem" width="80%">
+          {message}
+        </AppText>
         <BtnRow>
           <Button
             title={btnTitle}

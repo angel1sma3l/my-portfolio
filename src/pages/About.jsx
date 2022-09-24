@@ -53,8 +53,8 @@ const Logo = styled.div`
 
 const Name = styled.span`
   font-family: Snell Roundhand, cursive;
-  font-size: 2.9rem;
-  font-weight: 400;
+  font-size: 4rem;
+  font-weight: 700;
   color: red;
 `;
 
@@ -62,64 +62,56 @@ const About = () => {
   useScrollToTop();
 
   return (
-    <>
+    <Section>
       <AppText ta="center" fs="4rem">
         Hello!
       </AppText>
-      <Section>
-        <AppText ta="center" fs="2.1rem" width="40rem">
-          My name is <Name>Angel Linares</Name> an ardent Front-end developer
-          with experience leveraging JavaScript to build high performance,
-          responsive websites, e-commerce sites, internal frameworks, mobile
-          apps, and interactive features that drive business growth and improve
-          UX.
-        </AppText>
+      <AppText ta="center" fs="2.1rem" width="50%">
+        My name is <Name>Angel Linares</Name> an ardent Front-end developer with
+        experience leveraging JavaScript to build high performance, responsive
+        websites, e-commerce sites, internal frameworks, mobile apps, and
+        interactive features that drive business growth and improve UX.
+      </AppText>
 
-        <Div>
-          Expertise:
-          <LogosDiv>
-            <Logo>
-              <FontAwesomeIcon
-                icon={faReact}
-                size="3x"
-                spin
-                color="royalblue"
-              />
-              React
-              <br /> React Native
-            </Logo>
-            <Logo>
-              <FontAwesomeIcon icon={faJs} size="3x" color="orange" />
-              JavaScript
-            </Logo>
-            <Logo>
-              <FontAwesomeIcon icon={faHtml5} size="3x" color="#e34c26" />
-              HTML
-            </Logo>
-            <Logo>
-              <FontAwesomeIcon icon={faCss3} size="3x" color="#264de4" />
-              CSS
-            </Logo>
-          </LogosDiv>
-        </Div>
+      <Div>
+        Expertise:
+        <LogosDiv>
+          <Logo>
+            <FontAwesomeIcon icon={faReact} size="3x" spin color="royalblue" />
+            React
+            <br /> React Native
+          </Logo>
+          <Logo>
+            <FontAwesomeIcon icon={faJs} size="3x" color="orange" />
+            JavaScript
+          </Logo>
+          <Logo>
+            <FontAwesomeIcon icon={faHtml5} size="3x" color="#e34c26" />
+            HTML
+          </Logo>
+          <Logo>
+            <FontAwesomeIcon icon={faCss3} size="3x" color="#264de4" />
+            CSS
+          </Logo>
+        </LogosDiv>
+      </Div>
 
-        <Div>
-          Most used libraries:
-          <LogosDiv>
-            <AppText fw={700}>Axios</AppText>
-            <AppText fw={700}>React Router</AppText>
-            <AppText fw={700}>Styled Component</AppText>
-          </LogosDiv>
-        </Div>
+      <Div>
+        Most used libraries:
+        <LogosDiv>
+          <AppText fw={700}>Axios</AppText>
+          <AppText fw={700}>React Router</AppText>
+          <AppText fw={700}>Styled Component</AppText>
+        </LogosDiv>
+      </Div>
 
-        <Div>
-          Education:
-          <br />
-          <br />
-          BS in Information Technology. @ Kaplan University 2017
-        </Div>
-      </Section>
-    </>
+      <Div>
+        Education:
+        <br />
+        <br />
+        BS in Information Technology. @ Kaplan University 2017
+      </Div>
+    </Section>
   );
 };
 

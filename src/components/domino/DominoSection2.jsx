@@ -6,7 +6,7 @@ const Section = styled.section`
   align-items: center;
   justify-content: center;
   width: 75vw;
-  min-height: 800px;
+  height: 800px;
   padding: 0;
   margin: 0;
 `;
