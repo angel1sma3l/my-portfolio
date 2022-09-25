@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Section1 from "./Section1";
 import Sectionn2 from "./Section2";
 
-const Main = styled.main`
+const Article = styled.article`
   display: flex;
   padding: 0;
   margin: 0;
@@ -26,7 +26,7 @@ const Main = styled.main`
 
 const EyeskySection = () => {
   return (
-    <Main>
+    <Article>
       <figure>
         <section>
           <Section1 />
@@ -35,7 +35,7 @@ const EyeskySection = () => {
           <Sectionn2 />
         </section>
       </figure>
-    </Main>
+    </Article>
   );
 };
 

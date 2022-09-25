@@ -1,22 +1,19 @@
 import React, { forwardRef } from "react";
 import styled from "styled-components";
 
-const StyledDiv = styled.div`
+const Article = styled.article`
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
-  padding-top: 60px;
+  min-height: 100vh;
   width: 100vw;
-  overflow: scroll;
-  scroll-behavior: smooth;
 `;
 
 const Container = forwardRef(({ children, ...otherProps }, ref) => {
   return (
-    <StyledDiv ref={ref} {...otherProps}>
+    <Article ref={ref} {...otherProps}>
       {children}
-    </StyledDiv>
+    </Article>
   );
 });
 

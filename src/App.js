@@ -20,16 +20,22 @@ function App() {
   };
 
   return (
-    <main theme={selectedTheme} className="App">
+    <main
+      className="App"
+      theme={selectedTheme}
+      onScroll={onScroll}
+      ref={containerRef}
+    >
       <Navbar
         scrollY={scrollPositionY}
         theme={selectedTheme}
         onThemeChange={switchTheme}
       />
-      <Container onScroll={onScroll} ref={containerRef}>
+
+      <Container>
         <Outlet />
-        <Footer />
         <ScrollToTop positionY={scrollPositionY} />
+        <Footer />
       </Container>
     </main>
   );

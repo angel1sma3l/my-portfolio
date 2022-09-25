@@ -2,7 +2,7 @@ import dominoLogo from "../../assets/domino-icon180.png";
 import Button from "../Button";
 import styled, { keyframes } from "styled-components";
 
-const Section = styled.section`
+const Article = styled.article`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,7 +13,7 @@ const Section = styled.section`
   padding: 0;
 `;
 
-const Div = styled.div`
+const Section = styled.article`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,79 +25,73 @@ const Div = styled.div`
   background: radial-gradient(red, black 50%);
   margin: 0;
   box-shadow: 0px 0px 20px gray;
+
+  h1 {
+    font-weight: 500;
+    font-size: 3rem;
+  }
+
+  h3 {
+    font-weight: 400;
+  }
+
+  h1,
+  h3 {
+    width: 50%;
+    @media (max-width: 800px) {
+      width: 95%;
+    }
+  }
 `;
 
 const rotate = keyframes`
-  from {
-    transform: rotate(0deg);
+  0% {
+    transform: rotate(15deg);
+  }
+  5% {
+    transform: rotate(15deg);
   }
 
-  to {
-    transform: rotate(-180deg);
+  40% {
+    transform: rotate(-170deg);
   }
-`;
-
-const spin = keyframes`
-from {
-  transform: rotate(-180deg);
+43% {
+  transform: rotate(-170deg);
 }
 
-to {
-  transform: rotate(18turn);
+100% {
+  transform: rotate(10.05turn);
 }
 `;
 
 // Here we create a component that will rotate everything we pass in over two seconds
 const Rotate = styled.div`
   display: flex;
-  transition: all 1s ease-out;
-
-  &:hover {
-    animation: 1.3s ease-in-out 0s 1 normal ${rotate},
-      5s ease-out 1.3s 1 normal ${spin};
-  }
-`;
-
-const Text = styled.p`
-  font-size: ${(props) => props.fs};
-  font-weight: ${(props) => props.fw};
-  line-height: ${(props) => props.lh};
-  color: ${(props) => props.color};
-  text-align: center;
-  padding: 0;
-  width: 50%;
-
-  @media (max-width: 800px) {
-    width: 90%;
-  }
+  animation: 5s ease-in-out 3s 8 normal ${rotate};
 `;
 
 const DominoSection1 = () => {
   return (
-    <Section>
-      <Div>
-        <Text fs="3rem" fw={600}>
-          A simple app, used by all.
-        </Text>
+    <Article>
+      <Section>
+        <h1>A simple app, used by all.</h1>
 
         <Rotate>
-          <img src={dominoLogo} alt="domino apunte" />
+          <img src={dominoLogo} alt="domino apunte logo" />
         </Rotate>
 
-        <Text fs="2rem" fw={500}>
-          Domino Apunte
-        </Text>
-        <Text>
+        <h2>Domino Apunte</h2>
+        <h3>
           Over 500k users over the world are using Domino Apunte to keep track
           of their domino's points.
-        </Text>
+        </h3>
         <Button
           title="Download"
           bgColor="royalblue"
           onClick={() => window.open("https://dominoapunte.com")}
         />
-      </Div>
-    </Section>
+      </Section>
+    </Article>
   );
 };
 
