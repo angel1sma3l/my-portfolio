@@ -14,11 +14,6 @@
   transition: color 1000ms ease-in-out, background-color 500ms ease-out;
 }
 
-h1 {
-  font-size: 4rem;
-  font-weight: var(--font-weight);
-}
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;

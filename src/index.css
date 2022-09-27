@@ -13,7 +13,7 @@
   --bg-color: #000;
   --text-color: #fff;
   --accent-color: #188;
-  --font-weight: 200;
+  --font-weight: 300;
 }
 
 body {
@@ -26,10 +26,13 @@ body {
   background-color: var(--bg-color);
   margin: 0;
   padding: 0;
-  width: 100vw;
-  height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 400;
 }
 
 body::-webkit-scrollbar {

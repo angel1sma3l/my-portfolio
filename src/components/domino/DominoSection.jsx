@@ -7,30 +7,13 @@ import ChevronLeft from "@material-ui/icons/ChevronLeft";
 import { keyframes } from "styled-components";
 import DominoSection3 from "./DominoSection3";
 
-const sliding1 = keyframes`
-  0% {
-    transform: translateX(0px);
-  }
-  50% {
-    transform: translateX(-100vw);
-  }
-
-  100% {
-    transform: translateX(-200vw);
-  }
-`;
-
 const Carrousel = styled.div`
   display: flex;
   align-items: center;
   margin: 0;
   padding: 0;
-  transition: ${({ sectionNumber, transitionOff }) =>
-    transitionOff ? "none" : "all 0.8s ease-in-out"};
-
-  /* animation: 28s ease-in 5s infinite forwards ${sliding1}; */
-
   transform: ${({ sectionNumber }) => "translateX(-" + sectionNumber + "vw)"};
+  transition: transform 1s ease-in-out;
 `;
 
 const Left = styled.div`
@@ -54,13 +37,12 @@ const Right = styled.div`
   z-index: 2;
 `;
 
-const Main = styled.div`
+const Main = styled.article`
   display: flex;
   align-items: center;
   min-width: 75vw;
   max-width: 75vw;
-  min-height: 800px;
-  max-height: 800px;
+  height: 900px;
   background-color: white;
   position: relative;
   overflow: visible;
@@ -68,20 +50,20 @@ const Main = styled.div`
   margin: 0;
 `;
 
-const Glass = styled.div`
+const Glass = styled.aside`
   display: flex;
-  background-color: #ffffff99;
+  background-color: lightgray;
+  opacity: 0.6;
   width: 100%;
   height: 100%;
   z-index: 2;
 `;
 
-const Contain = styled.div`
+const Contain = styled.article`
   display: flex;
   flex-direction: row;
-  max-width: 100vw;
-  min-width: 100vw;
-  min-height: 800px;
+  width: 100vw;
+  min-height: 950px;
   align-items: center;
   justify-content: center;
   background-color: white;
@@ -90,12 +72,9 @@ const Contain = styled.div`
 
 const DominoSection = () => {
   const [sectionNumber, setSectionNumber] = useState(0);
-  const [transitionOff, setTransitionOff] = useState(false);
 
   const handleRight = () => {
     let state = sectionNumber;
-    // turnoff transition to go back to the first section or slide.
-    setTransitionOff(state > 75 ? true : false);
 
     state = state < 2 * 75 ? state + 75 : 0;
     setSectionNumber(state);
@@ -114,7 +93,7 @@ const DominoSection = () => {
           <ChevronLeft fontSize="inherit" color="inherit" />
         </Left>
 
-        <Carrousel sectionNumber={sectionNumber} transitionOff={transitionOff}>
+        <Carrousel sectionNumber={sectionNumber}>
           <DominoSection1 />
           <DominoSection2 />
           <DominoSection3 />

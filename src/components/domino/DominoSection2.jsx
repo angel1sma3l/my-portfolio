@@ -6,12 +6,12 @@ const Section = styled.section`
   align-items: center;
   justify-content: center;
   width: 75vw;
-  height: 800px;
+  height: 900px;
   padding: 0;
   margin: 0;
 `;
 
-const Darklayer = styled.div`
+const Darklayer = styled.article`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,13 +27,21 @@ const Darklayer = styled.div`
   margin: 0;
   padding: 0;
 
-  div {
+  article {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    width: 100%;
+    justify-content: center;
+    width: 50%;
     background-color: #00000055;
+    text-align: center;
+    p {
+      font-size: 1.5rem;
+    }
+
+    @media (max-width: 800px) {
+      width: 90%;
+    }
   }
 `;
 
@@ -41,10 +49,9 @@ const DominoSection2 = () => {
   return (
     <Section>
       <Darklayer>
-        <div>
-          <AppText width="50%" fw={400} fs="1.5rem">
-            <AppText fs="2.3rem">A little history about Domino Apunte</AppText>
-            <br />
+        <article>
+          <h1>A little history about Domino Apunte</h1>
+          <p>
             Back in 2018 in Leominster Massachusetts I was playing a hand of
             Dominoes with a good friend of mine Robert, when the time to write
             down the score came, I thoght there must be a scoresheet app to keep
@@ -52,8 +59,8 @@ const DominoSection2 = () => {
             didn't like none of them, too much ads and kind of complex or hard
             to use. I just didn't like them and said, I am going to create my
             own app. That day Domino Apunte was born.
-          </AppText>
-        </div>
+          </p>
+        </article>
       </Darklayer>
     </Section>
   );

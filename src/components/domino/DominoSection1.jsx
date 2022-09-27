@@ -2,18 +2,17 @@ import dominoLogo from "../../assets/domino-icon180.png";
 import Button from "../Button";
 import styled, { keyframes } from "styled-components";
 
-const Article = styled.article`
+const Section = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 75vw;
-  height: 800px;
+  height: 900px;
   margin: 0;
   padding: 0;
-`;
 
-const Section = styled.article`
+article {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,10 +24,17 @@ const Section = styled.article`
   background: radial-gradient(red, black 50%);
   margin: 0;
   box-shadow: 0px 0px 20px gray;
+  text-align: center;
 
   h1 {
     font-weight: 500;
     font-size: 3rem;
+  }
+
+  a {
+    color: white;
+    cursor:not-allowed;
+    padding: 20px;
   }
 
   h3 {
@@ -72,9 +78,9 @@ const Rotate = styled.div`
 
 const DominoSection1 = () => {
   return (
-    <Article>
-      <Section>
-        <h1>A simple app, used by all.</h1>
+    <Section>
+      <article>
+        <h1> A simple app, used by all.</h1>
 
         <Rotate>
           <img src={dominoLogo} alt="domino apunte logo" />
@@ -90,8 +96,11 @@ const DominoSection1 = () => {
           bgColor="royalblue"
           onClick={() => window.open("https://dominoapunte.com")}
         />
-      </Section>
-    </Article>
+        <a title="codes source are private" href="#">
+          GitHub source code
+        </a>
+      </article>
+    </Section>
   );
 };
 
