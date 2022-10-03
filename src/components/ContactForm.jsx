@@ -5,7 +5,7 @@ import AppText from "../components/AppText";
 import Button from "../components/Button";
 import Modal from "./Modal";
 
-const Main = styled.main`
+const Article = styled.article`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,7 +14,7 @@ const Main = styled.main`
   padding: 0;
   min-height: 700px;
   gap: 30px;
-  margin: 10px 0 0;
+  margin: 30px 0;
   box-shadow: 0px 0px 20px var(--accent-color);
   border-radius: 5px;
 
@@ -95,7 +95,7 @@ const ContactForm = () => {
   };
 
   return (
-    <Main>
+    <Article>
       <Modal
         visible={showModal}
         title="Thank you"
@@ -143,7 +143,7 @@ const ContactForm = () => {
           <Button type="submit" title="Send" bgColor="var(--purplish)" />
         </div>
       </Form>
-    </Main>
+    </Article>
   );
 };
 

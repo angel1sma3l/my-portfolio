@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import styled from "styled-components";
 import Section1 from "./Section1";
 import Sectionn2 from "./Section2";
@@ -24,9 +25,9 @@ const Article = styled.article`
   }
 `;
 
-const EyeskySection = () => {
+const EyeskySection = forwardRef((props, ref) => {
   return (
-    <Article>
+    <Article id="eyesky_platform" ref={ref}>
       <figure>
         <section>
           <Section1 />
@@ -37,6 +38,6 @@ const EyeskySection = () => {
       </figure>
     </Article>
   );
-};
+});
 
 export default EyeskySection;

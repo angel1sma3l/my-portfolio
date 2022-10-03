@@ -1,10 +1,9 @@
-import { useState } from "react";
+import { forwardRef, useState } from "react";
 import styled from "styled-components";
 import DominoSection1 from "./DominoSection1";
 import DominoSection2 from "./DominoSection2";
 import ChevronRight from "@material-ui/icons/ChevronRight";
 import ChevronLeft from "@material-ui/icons/ChevronLeft";
-import { keyframes } from "styled-components";
 import DominoSection3 from "./DominoSection3";
 
 const Carrousel = styled.div`
@@ -70,7 +69,7 @@ const Contain = styled.article`
   overflow: hidden;
 `;
 
-const DominoSection = () => {
+const DominoSection = forwardRef((props, ref) => {
   const [sectionNumber, setSectionNumber] = useState(0);
 
   const handleRight = () => {
@@ -86,7 +85,7 @@ const DominoSection = () => {
   };
 
   return (
-    <Contain>
+    <Contain id="domino_apunte" ref={ref}>
       <Glass></Glass>
       <Main>
         <Left onClick={handleLeft} sectionNumber={sectionNumber}>
@@ -106,6 +105,6 @@ const DominoSection = () => {
       <Glass></Glass>
     </Contain>
   );
-};
+});
 
 export default DominoSection;
