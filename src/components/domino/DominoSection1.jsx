@@ -76,6 +76,14 @@ const Rotate = styled.div`
   animation: 5s ease-in-out 3s 8 normal ${rotate};
 `;
 
+const LinkButton = styled.button`
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: white;
+  margin: 20px 0;
+`;
+
 const DominoSection1 = () => {
   return (
     <Section>
@@ -96,9 +104,9 @@ const DominoSection1 = () => {
           bgColor="royalblue"
           onClick={() => window.open("https://dominoapunte.com")}
         />
-        <a title="codes source are private" href="#">
-          GitHub source code
-        </a>
+        <LinkButton title="codes source are private">
+          GitHub source code{" >"}
+        </LinkButton>
       </article>
     </Section>
   );

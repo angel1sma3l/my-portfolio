@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import AppText from "../AppText";
 
 const Section = styled.section`
   display: flex;
