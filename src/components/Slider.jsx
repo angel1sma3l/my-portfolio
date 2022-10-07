@@ -23,38 +23,67 @@ const sliding = keyframes`
 }
 `;
 
-const Main = styled.main`
-  width: ${({ width }) => width + "px"};
-  overflow: hidden;
+const Main = styled.div`
+  width: ${({ width }) => width};
+  padding: 0;
+  margin: 0;
   transition: all 0.3s ease;
+  overflow: hidden;
   &:hover {
     box-shadow: ${({ hoverOn }) => (hoverOn ? "0px 0px 20px gray" : "none")};
   }
   figure {
-    width: ${({ width, qty }) => width * qty + "px"};
+    background-color: black;
     position: relative;
-    margin: 0;
-    padding: 0;
+    width: ${({ qty }) => qty * 100}%;
+    gap: 0px;
     left: 0;
-    animation: 10s ease-in-out infinite ${({ auto }) => (auto ? sliding : null)};
+    background-color: ${({ bgColor }) => bgColor};
+    padding: 0;
+    margin: 0;
+    animation: ${({ duration }) => duration} ease-in-out infinite
+      ${({ auto, keyframe }) => (auto ? (keyframe ? keyframe : sliding) : null)};
+
+    img {
+      width: ${({ qty }) => 100 / qty}%;
+      float: left;
+      height: ${({ height }) => height};
+      object-fit: contain;
+      padding: 0;
+      margin: 0;
+    }
+
     &:hover {
       animation: 10s ease-in-out 0s infinite
         ${({ hoverOn }) => (hoverOn ? sliding : null)};
     }
-
-    img {
-      width: ${({ width }) => width + "px"};
-      float: left;
-      height: auto;
-    }
   }
 `;
 
-const Slider = ({ width = 150, data = [], auto, hoverOn }) => {
+const Slider = ({
+  width = "150%",
+  height = "150px",
+  data = [],
+  auto,
+  duration = "10s",
+  hoverOn,
+  bgColor,
+  keyframe = null,
+}) => {
   const imgQty = data?.length;
+
   return (
-    <Main width={width} qty={imgQty} hoverOn={hoverOn} auto={auto}>
-      <figure>
+    <Main
+      auto={auto}
+      duration={duration}
+      hoverOn={hoverOn}
+      height={height}
+      bgColor={bgColor}
+      keyframe={keyframe}
+      qty={imgQty}
+      width={width}
+    >
+      <figure onScroll={(e) => console.log(e)}>
         {data.map((item, index) => (
           <img key={index} src={item.url} alt="web slides" />
         ))}

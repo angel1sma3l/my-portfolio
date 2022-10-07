@@ -1,37 +1,46 @@
 import styled from "styled-components";
-import AppText from "../AppText";
 import EyeskyDownload from "./EyeskyDownload";
 import Webcard from "./Webcard";
 
-const Div = styled.div`
+const Container = styled.article`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 30px;
   height: 1000px;
-  width: 100vw;
+  min-width: 95vw;
   padding: 0;
   background: linear-gradient(to bottom, darkblue, black, darkblue);
   color: white;
-`;
+  box-shadow: 0px 0px 20px gray;
+  scroll-snap-align: start;
 
-const Row = styled.div`
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  width: 100%;
-  gap: 10px;
+  p {
+    width: 700px;
+    @media (max-width: 800px) {
+      width: 95%;
+    }
+  }
+
+  section {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+  }
 `;
 
 const Section1 = () => {
   return (
-    <Div>
-      <AppText fs="3rem">Eyesky platform</AppText>
-      <Row>
+    <Container>
+      <h1>Eyesky platform</h1>
+      <section>
         <EyeskyDownload />
         <Webcard />
-      </Row>
-      <AppText fs="1.5rem" width="50%">
+      </section>
+      <p>
         This app is meant to help property managers to manage their properties
         while showing the owners things that happen with their properties such
         as maintenance request, manager announcements, payments and balance.{" "}
@@ -45,8 +54,8 @@ const Section1 = () => {
         <br />
         <br />
         Created with React and React Native.
-      </AppText>
-    </Div>
+      </p>
+    </Container>
   );
 };
 

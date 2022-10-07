@@ -24,7 +24,7 @@ const Webcard = () => {
   return (
     <Div onClick={() => window.open("https://eyesky.org", "_blank")}>
       Web
-      <Slider data={images} width={150} hoverOn={true} />
+      <Slider data={images} width="150px" height="100px" hoverOn={true} />
       eyesky.org
     </Div>
   );

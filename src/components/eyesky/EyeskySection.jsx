@@ -2,6 +2,7 @@ import { forwardRef } from "react";
 import styled from "styled-components";
 import Section1 from "./Section1";
 import Sectionn2 from "./Section2";
+import Section3 from "./Section3";
 
 const Article = styled.article`
   display: flex;
@@ -11,17 +12,13 @@ const Article = styled.article`
 
   figure {
     display: flex;
-    flex-direction: row;
-    width: 97vw;
+    align-items: center;
+    gap: 2%;
     min-height: 100%;
     margin: 0;
     padding: 0;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
-
-    section {
-      scroll-snap-align: start;
-    }
   }
 `;
 
@@ -29,12 +26,9 @@ const EyeskySection = forwardRef((props, ref) => {
   return (
     <Article id="eyesky_platform" ref={ref}>
       <figure>
-        <section>
-          <Section1 />
-        </section>
-        <section>
-          <Sectionn2 />
-        </section>
+        <Section1 />
+        <Sectionn2 />
+        <Section3 />
       </figure>
     </Article>
   );

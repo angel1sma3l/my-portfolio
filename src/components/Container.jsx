@@ -4,6 +4,7 @@ import styled from "styled-components";
 const Article = styled.article`
   display: flex;
   align-items: center;
+  padding: 60px 0 0 0;
   flex-direction: column;
   min-height: 100vh;
   width: 100vw;
