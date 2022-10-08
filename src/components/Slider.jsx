@@ -1,93 +1,87 @@
-import styled, { keyframes } from "styled-components";
-
-const sliding = keyframes`
-0% {
-    left: 0;
-}
-10% {
-    left: 0;
-}
-
-20% {
-    left: -100%;
-}
-60% {
-    left: -100%;
-}
-
-70% {
-    left: -200%;
-}
-100% {
-    left: -200%;
-}
-`;
+import { useEffect } from "react";
+import { useState } from "react";
+import styled from "styled-components";
 
 const Main = styled.div`
   width: ${({ width }) => width};
   padding: 0;
   margin: 0;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
   overflow: hidden;
   &:hover {
     box-shadow: ${({ hoverOn }) => (hoverOn ? "0px 0px 20px gray" : "none")};
   }
-  figure {
-    background-color: black;
-    position: relative;
-    width: ${({ qty }) => qty * 100}%;
-    gap: 0px;
-    left: 0;
-    background-color: ${({ bgColor }) => bgColor};
-    padding: 0;
-    margin: 0;
-    animation: ${({ duration }) => duration} ease-in-out infinite
-      ${({ auto, keyframe }) => (auto ? (keyframe ? keyframe : sliding) : null)};
 
-    img {
-      width: ${({ qty }) => 100 / qty}%;
-      float: left;
+  .wrapper {
+    display: flex;
+    background-color: ${({ bgColor }) => bgColor};
+    gap: 5px;
+    transition: ${({ slideNum }) =>
+      slideNum === 0 ? "none" : "transform 1s ease-out"};
+    width: ${({ qty }) => qty * 100}%;
+
+    transform: ${({ slideNum, qty }) =>
+      // divide 100% into qty of images to find the width of each slide then
+      // multiply it by slide number. all negative to translate to the left.
+      "translateX(-" + ((100 / qty) * slideNum + "%)")};
+
+    .slide {
       height: ${({ height }) => height};
-      object-fit: contain;
-      padding: 0;
-      margin: 0;
+      width: ${({ qty }) => 100 / qty}%;
     }
 
-    &:hover {
-      animation: 10s ease-in-out 0s infinite
-        ${({ hoverOn }) => (hoverOn ? sliding : null)};
+    img {
+      height: 100%;
+      object-fit: contain;
+      width: 100%;
     }
   }
 `;
 
 const Slider = ({
-  width = "150%",
+  width = "150px",
   height = "150px",
   data = [],
   auto,
-  duration = "10s",
+  delay = 3000,
   hoverOn,
   bgColor,
-  keyframe = null,
 }) => {
   const imgQty = data?.length;
+  const [slideNum, setSlideNum] = useState(0);
+
+  useEffect(() => {
+    let index = 0;
+    let interv = null;
+
+    if (auto) {
+      interv = setInterval(() => {
+        index = index < imgQty - 1 ? (index += 1) : 0;
+        setSlideNum(index);
+      }, delay);
+    }
+
+    return () => {
+      clearInterval(interv);
+    };
+  }, [auto, delay, imgQty]);
 
   return (
     <Main
-      auto={auto}
-      duration={duration}
+      bgColor={bgColor}
       hoverOn={hoverOn}
       height={height}
-      bgColor={bgColor}
-      keyframe={keyframe}
+      slideNum={slideNum}
       qty={imgQty}
       width={width}
     >
-      <figure onScroll={(e) => console.log(e)}>
+      <div className="wrapper">
         {data.map((item, index) => (
-          <img key={index} src={item.url} alt="web slides" />
+          <div className="slide" key={index}>
+            <img src={item.url} alt="eyesky mobile app slides" />
+          </div>
         ))}
-      </figure>
+      </div>
     </Main>
   );
 };

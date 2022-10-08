@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import styled from "styled-components";
 import Section1 from "./Section1";
-import Sectionn2 from "./Section2";
+import Section2 from "./Section2";
 import Section3 from "./Section3";
 
 const Article = styled.article`
@@ -27,7 +27,7 @@ const EyeskySection = forwardRef((props, ref) => {
     <Article id="eyesky_platform" ref={ref}>
       <figure>
         <Section1 />
-        <Sectionn2 />
+        <Section2 />
         <Section3 />
       </figure>
     </Article>

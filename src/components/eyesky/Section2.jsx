@@ -13,6 +13,10 @@ const Container = styled.article`
   background: radial-gradient(darkblue, black 50%);
   color: white;
   scroll-snap-align: start;
+  h1 {
+    margin: 20px 0 0;
+  }
+
   section {
     display: flex;
     width: 60%;

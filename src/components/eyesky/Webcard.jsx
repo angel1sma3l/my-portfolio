@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Slider from "../Slider";
 
 const Div = styled.div`
   display: flex;
@@ -14,17 +13,15 @@ const Div = styled.div`
   }
 `;
 
-const images = [
-  { url: "https://dmicano.s3.us-east-2.amazonaws.com/eyesky/Home-web.png" },
-  { url: "https://dmicano.s3.us-east-2.amazonaws.com/eyesky/property-web.png" },
-  { url: "https://dmicano.s3.us-east-2.amazonaws.com/eyesky/Home-web.png" }, // clone first img
-];
-
 const Webcard = () => {
   return (
     <Div onClick={() => window.open("https://eyesky.org", "_blank")}>
       Web
-      <Slider data={images} width="150px" height="100px" hoverOn={true} />
+      <img
+        src="https://dmicano.s3.us-east-2.amazonaws.com/eyesky/Home-web.png"
+        alt="eyesky.org home"
+        width="200"
+      />
       eyesky.org
     </Div>
   );

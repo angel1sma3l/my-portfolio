@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import Slider from "../Slider";
 
 const Container = styled.article`
@@ -14,6 +14,10 @@ const Container = styled.article`
   box-shadow: 0px 0px 20px gray;
   padding: 0 20px;
   scroll-snap-align: start;
+  h1 {
+    margin: 20px 0 0;
+  }
+
   section {
     display: flex;
     max-width: 1200px;
@@ -33,56 +37,9 @@ const Slideshow = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 350px;
+  width: 400px;
   padding: 10px 0;
   background-color: white;
-`;
-
-const sliding = keyframes`
-0% {    left: 0;}
-5% {    left: 0;}
-
-7% {    left: -100%;}
-12% {    left: -100%;}
-
-14% {  left: -200%;}
-19% {  left: -200%;}
-
-21% {    left: -300%;}
-26% {    left: -300%;}
-
-28% {    left: -400%;}
-33% {    left: -400%;}
-
-35% {    left: -500%;}
-40% {    left: -500%;}
-
-42% {    left: -600%;}
-47% {    left: -600%;}
-
-49% {    left: -700%;}
-54% {    left: -700%;}
-
-56% {    left: -800%;}
-61% {    left: -800%;}
-
-63% {    left: -900%;}
-68% {    left: -900%;}
-
-70% {    left: -1000%;}
-75% {    left: -1000%;}
-
-77% {    left: -1100%;}
-82% {    left: -1100%;}
-
-84% {    left: -1200%;}
-89% {    left: -1200%;}
-
-91% {    left: -1300%;}
-96% {    left: -1300%;}
-
-98% {    left: -1400%;}
-100% {    left: -1400%;}
 `;
 
 const images = [
@@ -130,11 +87,9 @@ const Sectionn3 = () => {
       <Slideshow>
         <Slider
           data={images}
-          width="300px"
+          width="350px"
           height="400px"
           auto={true}
-          keyframe={sliding}
-          duration="45s"
           bgColor="white"
         />
       </Slideshow>
