@@ -15,7 +15,7 @@ const Container = styled.article`
   padding: 0 20px;
   scroll-snap-align: start;
   h1 {
-    margin: 20px 0 0;
+    margin: 20px 0 10px;
   }
 
   section {

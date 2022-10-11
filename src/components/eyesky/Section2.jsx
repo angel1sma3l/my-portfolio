@@ -14,7 +14,7 @@ const Container = styled.article`
   color: white;
   scroll-snap-align: start;
   h1 {
-    margin: 20px 0 0;
+    margin: 20px 0 10px;
   }
 
   section {
