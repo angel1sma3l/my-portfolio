@@ -35,14 +35,8 @@ const Nav = styled.nav`
   min-height: 60px;
   max-height: 60px;
   width: 100vw;
+  max-width: 1200px;
   padding: 0px;
-
-  @media (max-width: 800px) {
-    width: 100vw;
-  }
-  @media (min-width: 1200px) {
-    max-width: 1200px;
-  }
 `;
 
 const Brand = styled.div`
