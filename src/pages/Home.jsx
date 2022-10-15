@@ -8,13 +8,11 @@ const MyProjects = styled.article`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 50%;
+  width: 90%;
+  max-width: 1000px;
   min-height: max-content;
   margin: 0;
-  padding: 0;
-  @media (max-width: 800px) {
-    width: 90%;
-  }
+  padding: 100px 0;
 `;
 
 const Home = () => {

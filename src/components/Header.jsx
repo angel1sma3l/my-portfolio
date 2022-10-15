@@ -29,6 +29,7 @@ const Main = styled.header`
   margin: 0;
   padding: 0;
   width: 100vw;
+  overflow: hidden;
   position: relative;
 
   div {
