@@ -1,19 +1,26 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
-import AppLink from "./AppLink";
+import { Link, useNavigate } from "react-router-dom";
+import styled, { keyframes } from "styled-components";
 import Button from "./Button";
+
+const textAnimation = keyframes`
+0% {
+  transform: scale(0);
+}
+
+95% {
+  transform: scale(1.3);
+}
+
+
+100% {
+  transform: scale(1);
+  
+}
+`;
 
 const Main = styled.header`
   align-items: center;
-  background: linear-gradient(
-    13deg,
-    black 50%,
-    royalblue 60%,
-    var(--light-violet) 70%,
-    blueviolet 75%,
-    black 80%
-  );
+  background-color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,73 +29,83 @@ const Main = styled.header`
   margin: 0;
   padding: 0;
   width: 100vw;
-  opacity: ${(props) => (props.show ? 1 : 0)};
-  transition: transform 2s ease;
-  transform: ${(props) =>
-    props.show ? "scale(1) rotateY(1turn)" : "scale(0) rotateY(0turn)"};
-`;
+  position: relative;
 
-const Text = styled.p`
-  font-size: ${(props) => (props.fs ? props.fs : "3rem")};
-  font-weight: ${(props) => (props.fw ? props.fw : 300)};
-  max-width: 50%;
-  line-height: 1.5rem;
-  padding: 0;
-  margin: 0;
+  div {
+    width: 90vw;
+    max-width: 800px;
+    line-height: 1.5rem;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    animation: 5s ease-in 0s 1 ${textAnimation};
 
-  @media (max-width: 800px) {
-    transform: scale(0.8);
-    max-width: 95%;
+    h1 {
+      font-size: 5rem;
+      font-weight: 200;
+      margin: 0px auto;
+    }
+    span {
+      font-size: 2rem;
+      font-weight: 300;
+    }
   }
-`;
 
-const Span = styled.span`
-  font-size: 2rem;
-  font-weight: 200;
-  margin: 0;
-`;
+  .name {
+    font-family: Snell Roundhand, cursive;
+    font-size: 1.5em;
+    color: white;
+    font-weight: 700;
+  }
 
-const Name = styled.span`
-  font-family: Snell Roundhand, cursive;
-  font-size: 2.5rem;
-  font-weight: 500;
-  color: aquamarine;
-`;
+  .mylink {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
 
-const Row = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 33px;
-  margin: 50px 0px;
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 33px;
+    margin: 50px 0px;
+    width: 100%;
+  }
 `;
 
 const Header = () => {
   const navigate = useNavigate();
-  const [show, setShow] = useState(false);
-
-  useEffect(() => {
-    setShow(true);
-  }, []);
 
   return (
-    <Main show={show}>
-      <Text fs="5rem" fw={100}>
-        Greetings,{" "}
-        <Span>
-          I am <Name>Angel Linares </Name>a Front-end developer who's priority
-          is the user's experience, building stunning, fast and responsive Web
-          and Mobile apps using React | React Native.
-        </Span>
-      </Text>
-      <Row>
-        <Button
-          title="See my art"
-          onClick={() => navigate("/projects")}
-          borderColor="#fff"
+    <Main>
+      <video loop="true" autoPlay="true" muted height="900">
+        <source
+          src="https://dmicano.s3.us-east-2.amazonaws.com/video.mp4"
+          type="video/mp4"
         />
-        <AppLink title="Learn more" to="/about" rightArrow />
-      </Row>
+        <p>your browser doens't support this video format</p>
+      </video>
+      <div>
+        <h1>
+          Greetings,{" "}
+          <span>
+            <span className="name">Ismael </span> here. A Front-end developer
+            who's priority is the user's experience, building stunning, fast and
+            responsive Web and Mobile apps with React | React Native.
+          </span>
+        </h1>
+        <div className="row">
+          <Button
+            title="See my art"
+            onClick={() => navigate("/projects")}
+            borderColor="#fff"
+          />
+          <Link className="mylink" to="/about">
+            Learn more
+          </Link>
+        </div>
+      </div>
     </Main>
   );
 };

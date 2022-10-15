@@ -34,8 +34,8 @@ const Projects = () => {
   return (
     <>
       <EyeskySection ref={eyeskySection} />
-      <DominoSection ref={dominoSection} />
       <EcommerceSection ref={ecommerceSection} />
+      <DominoSection ref={dominoSection} />
       <HteamSection ref={hteamSection} />
     </>
   );
