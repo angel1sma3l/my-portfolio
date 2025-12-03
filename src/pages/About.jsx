@@ -51,13 +51,6 @@ const Logo = styled.div`
   text-align: center;
 `;
 
-const Name = styled.span`
-  font-family: Snell Roundhand, cursive;
-  font-size: 4rem;
-  font-weight: 700;
-  color: red;
-`;
-
 const About = () => {
   useScrollToTop();
 
