@@ -63,14 +63,16 @@ const About = () => {
 
   return (
     <Section>
-      <AppText ta="center" fs="4rem">
-        Hello!
-      </AppText>
       <AppText ta="center" fs="2.1rem" width="50%">
-        My name is <Name>Angel Linares</Name> an ardent Front-end developer with
-        experience leveraging JavaScript to build high performance, responsive
-        websites, e-commerce sites, internal frameworks, mobile apps, and
-        interactive features that drive business growth and improve UX.
+        DMICANO is a creative technology studio specializing in
+        high-performance, responsive digital experiences. We design and develop
+        websites, mobile apps, e-commerce solutions, and interactive features
+        that drive business growth and elevate user experience. Our flagship
+        app, Domino Apunte, is used worldwide and has over 1 million users,
+        featuring a built-in digital billboard that gives businesses a unique
+        opportunity to advertise their products directly to a large, engaged
+        audience. Our work is rooted in strong technical expertise, thoughtful
+        design, and a commitment to simplicity and innovation.
       </AppText>
 
       <Div>

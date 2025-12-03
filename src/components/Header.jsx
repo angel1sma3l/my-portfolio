@@ -34,6 +34,7 @@ const Main = styled.header`
 
   div {
     width: 90vw;
+    color: lightgray;
     max-width: 800px;
     line-height: 1.5rem;
     padding: 0;
@@ -42,12 +43,12 @@ const Main = styled.header`
     animation: 5s ease-in 0s 1 ${textAnimation};
 
     h1 {
-      font-size: 5rem;
-      font-weight: 200;
+      font-size: 3rem;
+      font-weight: 500;
       margin: 0px auto;
     }
     span {
-      font-size: 2rem;
+      font-size: 1.5rem;
       font-weight: 300;
     }
   }
@@ -89,16 +90,16 @@ const Header = () => {
       </video>
       <div>
         <h1>
-          Greetings,{" "}
+          Welcome to DMICANO{" "}
           <span>
-            <span className="name">Ismael </span> here. A Front-end developer
-            who's priority is the user's experience, building stunning, fast and
-            responsive Web and Mobile apps with React | React Native.
+            --your home for modern mobile solutions. From Domino Apunte to our
+            custom advertising tools, we help users and businesses connect in
+            smarter ways.”
           </span>
         </h1>
         <div className="row">
           <Button
-            title="See my art"
+            title="See our art"
             onClick={() => navigate("/projects")}
             borderColor="#fff"
           />
